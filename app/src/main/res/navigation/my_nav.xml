@@ -25,4 +25,101 @@
         android:name="com.example.register_login_firebase.reportFragment"
         android:label="fragment_report"
         tools:layout="@layout/fragment_report" />
+    <fragment
+        android:id="@+id/reminderFragment"
+        android:name="com.example.register_login_firebase.ReminderFragment"
+        android:label="fragment_reminder"
+        tools:layout="@layout/fragment_reminder" />
+    <fragment
+        android:id="@+id/personalDocumentFragment"
+        android:name="com.example.register_login_firebase.PersonalDocumentFragment"
+        android:label="fragment_personal_document"
+        tools:layout="@layout/fragment_personal_document" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.register_login_firebase.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/logoutFragment"
+        android:name="com.example.register_login_firebase.LogoutFragment"
+        android:label="fragment_logout"
+        tools:layout="@layout/fragment_logout" />
+    <fragment
+        android:id="@+id/investmentFragment"
+        android:name="com.example.register_login_firebase.investmentFragment"
+        android:label="fragment_investment"
+        tools:layout="@layout/fragment_investment" >
+        <action
+            android:id="@+id/toManageFragment"
+            app:destination="@id/manageFragment" />
+        <action
+            android:id="@+id/toBankAccount"
+            app:destination="@id/bankAccountFragment" />
+        <action
+            android:id="@+id/toFD"
+            app:destination="@id/fdFragment" />
+        <action
+            android:id="@+id/toInsurance"
+            app:destination="@id/insuranceFragment" />
+        <action
+            android:id="@+id/toMutualFunds"
+            app:destination="@id/mutualFundsFragment" />
+        <action
+            android:id="@+id/toLocker"
+            app:destination="@id/lockerFragment" />
+        <action
+            android:id="@+id/toLoans"
+            app:destination="@id/loanFragment" />
+        <action
+            android:id="@+id/toCreditcard"
+            app:destination="@id/creditCardFragment" />
+        <action
+            android:id="@+id/toOtherInvestments"
+            app:destination="@id/otherInvestmentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bankAccountFragment"
+        android:name="com.example.register_login_firebase.bankAccountFragment"
+        android:label="fragment_bank_account"
+        tools:layout="@layout/fragment_bank_account" >
+        <action
+            android:id="@+id/action_bankAccountFragment_to_investmentFragment"
+            app:destination="@id/investmentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fdFragment"
+        android:name="com.example.register_login_firebase.fdFragment"
+        android:label="fragment_fd"
+        tools:layout="@layout/fragment_fd" />
+    <fragment
+        android:id="@+id/insuranceFragment"
+        android:name="com.example.register_login_firebase.insuranceFragment"
+        android:label="fragment_insurance"
+        tools:layout="@layout/fragment_insurance" />
+    <fragment
+        android:id="@+id/mutualFundsFragment"
+        android:name="com.example.register_login_firebase.mutualFundsFragment"
+        android:label="fragment_mutual_funds"
+        tools:layout="@layout/fragment_mutual_funds" />
+    <fragment
+        android:id="@+id/lockerFragment"
+        android:name="com.example.register_login_firebase.lockerFragment"
+        android:label="fragment_locker"
+        tools:layout="@layout/fragment_locker" />
+    <fragment
+        android:id="@+id/loanFragment"
+        android:name="com.example.register_login_firebase.loanFragment"
+        android:label="fragment_loan"
+        tools:layout="@layout/fragment_loan" />
+    <fragment
+        android:id="@+id/creditCardFragment"
+        android:name="com.example.register_login_firebase.creditCardFragment"
+        android:label="fragment_credit_card"
+        tools:layout="@layout/fragment_credit_card" />
+    <fragment
+        android:id="@+id/otherInvestmentFragment"
+        android:name="com.example.register_login_firebase.otherInvestmentFragment"
+        android:label="fragment_other_investment"
+        tools:layout="@layout/fragment_other_investment" />
 </navigation>

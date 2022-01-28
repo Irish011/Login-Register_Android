@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ProfileActivity">
+
+    <TextView
+        android:id="@+id/profilename"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Name: "
+        android:layout_centerInParent="true"/>
+
+    <EditText
+        android:id="@+id/profilenameedit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/profilename"
+        android:layout_marginStart="-14dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginEnd="-100dp"
+        android:layout_marginBottom="35dp"
+        android:hint="Enter name"
+        />
+
+    <TextView
+        android:id="@+id/halo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profilename"
+        android:layout_marginTop="261dp"
+        android:text="Hello" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:layout_below="@+id/halo"/>
+
+</RelativeLayout>

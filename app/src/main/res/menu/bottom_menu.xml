@@ -10,7 +10,7 @@
         android:title="Family Tree"
         android:icon="@drawable/ic_familytree"/>
     <item
-        android:id="@+id/manageFragment"
+        android:id="@+id/investmentFragment"
         android:title="Manage Investments"
         android:icon="@drawable/ic_manageinvestment"/>
     <item

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/reminderFragment"
+            android:icon="@drawable/ic_reminder"
+            android:title="Reminders"/>
+        <item
+            android:id="@+id/personalDocumentFragment"
+            android:icon="@drawable/ic_document"
+            android:title="Personal Documents"/>
+        <item
+            android:id="@+id/settingsFragment"
+            android:icon="@drawable/ic_settings"
+            android:title="Settings"/>
+    </group>
+
+    <item android:title="Profile">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/logoutFragment"
+                    android:icon="@drawable/ic_logout"
+                    android:title="Logout"/>
+            </group>
+        </menu>
+    </item>
+
+</menu>

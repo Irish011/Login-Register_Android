@@ -7,15 +7,252 @@
     tools:context=".manageFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <TableLayout
+
+        android:id="@+id/tableLayout"
+        android:layout_width="364dp"
+        android:layout_height="458dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <TextView
+                android:id="@+id/company_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Company Name"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/company_name"
+                android:layout_width="191dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/branch_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Branch Name"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/branch_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/plan_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Plan"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/plan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/policyno_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Policy Number"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/policy_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/premium_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Premium Amount"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/premium_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/policydate_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Policy Date"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/policy_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/premiumno_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No Of Premium"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/no_of_premium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/maturityamt_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Maturity Amount"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/maturity_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/maturitydate_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Maturity Date"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/maturity_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="58dp">
+
+            <TextView
+                android:id="@+id/remark_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remark"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/remark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Manage Investments"
-        android:textSize="30sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="28dp"
+        android:text="Submit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="88dp"
+        android:text="Reset"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LIFE INSURANCE"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

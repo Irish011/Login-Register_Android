@@ -3,15 +3,34 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.19814814814814816" />
+        <entry key="app/src/main/res/drawable/bg1.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.19814814814814816" />
+        <entry key="app/src/main/res/drawable/ic_menu.xml" value="0.19814814814814816" />
+        <entry key="app/src/main/res/drawable/ic_portfolio.xml" value="0.26197916666666665" />
+        <entry key="app/src/main/res/drawable/rectangle.xml" value="0.26197916666666665" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.1897644927536232" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.19927536231884058" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.21829710144927536" />
         <entry key="app/src/main/res/layout/activity_reset_password.xml" value="0.21829710144927536" />
+        <entry key="app/src/main/res/layout/fragment_bank_account.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_credit_card.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_family_tree.xml" value="0.22056159420289856" />
+        <entry key="app/src/main/res/layout/fragment_fd.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_insurance.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_investment.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_loan.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_locker.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_manage.xml" value="0.22056159420289856" />
-        <entry key="app/src/main/res/layout/fragment_portfolio.xml" value="0.22056159420289856" />
+        <entry key="app/src/main/res/layout/fragment_mutual_funds.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_other_investment.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_portfolio.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_report.xml" value="0.22056159420289856" />
+        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/nav_header.xml" value="0.1" />
         <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.246875" />
+        <entry key="app/src/main/res/menu/side_menu.xml" value="0.25" />
       </map>
     </option>
   </component>
