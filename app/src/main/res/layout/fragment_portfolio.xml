@@ -13,13 +13,21 @@
 <!--       android:layout_width="match_parent"-->
 <!--       android:layout_height="match_parent"-->
 <!--       android:orientation="vertical">-->
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Personal"
+    android:fontFamily="@font/poppins_medium"
+
+    android:textSize="30sp"
+    android:layout_marginLeft="30dp"/>
 
        <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="253dp"
         android:layout_marginRight="30dp"
         app:cardCornerRadius="8dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="30dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -43,13 +51,21 @@
 
     </androidx.cardview.widget.CardView>
 
-
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Family"
+    android:textSize="30sp"
+    android:layout_marginTop="30dp"
+    android:layout_marginLeft="30dp"
+    android:fontFamily="@font/poppins_medium"
+    />
    <androidx.cardview.widget.CardView
        android:layout_width="match_parent"
        android:layout_height="253dp"
        android:layout_marginRight="30dp"
        app:cardCornerRadius="8dp"
-       android:layout_marginTop="60dp"
+       android:layout_marginTop="5dp"
        android:layout_marginLeft="30dp">
 
        <androidx.constraintlayout.widget.ConstraintLayout

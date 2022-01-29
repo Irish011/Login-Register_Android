@@ -8,37 +8,87 @@
     tools:context=".ProfileActivity">
 
     <TextView
-        android:id="@+id/profilename"
+        android:id="@+id/profiletext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Name: "
-        android:layout_centerInParent="true"/>
+        android:textSize="35sp"
+        android:layout_marginLeft="20dp"
+        android:text="Complete Profile"
+        android:fontFamily="@font/poppins_medium"
+        />
+
+    <EditText
+        android:id="@+id/profileusrname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profiletext"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+        android:textSize="20dp"
+        android:text="Irish011"
+        android:hint="Username"
+        />
 
     <EditText
         android:id="@+id/profilenameedit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/profilename"
-        android:layout_marginStart="-14dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginEnd="-100dp"
-        android:layout_marginBottom="35dp"
-        android:hint="Enter name"
+        android:layout_below="@+id/profileusrname"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:text="Irish"
+        android:hint="Name"
+        />
+
+    <EditText
+        android:id="@+id/profilefnameedit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profilenameedit"
+        android:layout_marginLeft="20dp"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:hint="Family Name"
         />
 
     <TextView
-        android:id="@+id/halo"
+        android:id="@+id/uploaddoc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/profilename"
-        android:layout_marginTop="261dp"
-        android:text="Hello" />
+        android:layout_below="@id/profilefnameedit"
+        android:layout_marginLeft="20dp"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:text="Upload any of the following document
+
+
+
+
+
+        (Pan Card, Aadhar Card, Passport or Driving License)"
+        />
+    <ImageView
+        android:id="@+id/uploadicon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/uploaddoc"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+
+        android:src="@drawable/ic_fileupload"/>
+
+
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:text="Submit"
-        android:layout_below="@+id/halo"/>
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/uploadicon"
+        />
 
 </RelativeLayout>

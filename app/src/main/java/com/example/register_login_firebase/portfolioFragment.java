@@ -106,9 +106,8 @@ public class portfolioFragment extends Fragment {
 
         //PieChart1
         List<DataEntry> data1 = new ArrayList<>();
-        data1.add(new ValueDataEntry("Apr", 300));
-        data1.add(new ValueDataEntry("May", 600));
-        data1.add(new ValueDataEntry("Jun", 2000));
+        data1.add(new ValueDataEntry("Investments", 300));
+        data1.add(new ValueDataEntry("Liabilities", 600));
 
         AnyChartView anyChartView = view.findViewById(R.id.chart);
         APIlib.getInstance().setActiveAnyChartView(anyChartView);
@@ -119,9 +118,8 @@ public class portfolioFragment extends Fragment {
 
         //PieChart2
         List<DataEntry> data2 = new ArrayList<>();
-        data2.add(new ValueDataEntry("Apr", 500));
-        data2.add(new ValueDataEntry("May", 900));
-        data2.add(new ValueDataEntry("Jun", 1000));
+        data2.add(new ValueDataEntry("Investments", 900));
+        data2.add(new ValueDataEntry("Liabilities", 400));
 
         AnyChartView anyChartView1 = view.findViewById(R.id.chart2);
         APIlib.getInstance().setActiveAnyChartView(anyChartView1);

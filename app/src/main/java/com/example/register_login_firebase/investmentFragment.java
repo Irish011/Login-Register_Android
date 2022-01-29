@@ -55,7 +55,7 @@ public class investmentFragment extends Fragment {
 
     private Button submit;
 //    private Button card1,card2;
-    private Integer field2, field1;
+    private Integer field2, field1, field3, field4, field5, field6, field7, field8;
     private List<DataEntry> data1;
     View view2;
 int k=1;
@@ -133,6 +133,12 @@ int k=1;
                         Log.d("exists", "DocumentSnapshot data: " + document.getData() + k);
                         field1 = Integer.parseInt(document.getString("data1"));
                         field2 = Integer.parseInt(document.getString("data2"));
+                        field3 = Integer.parseInt(document.getString("data3"));
+                        field4 = Integer.parseInt(document.getString("data4"));
+                        field5 = Integer.parseInt(document.getString("data5"));
+                        field6 = Integer.parseInt(document.getString("data6"));
+                        field7 = Integer.parseInt(document.getString("data7"));
+                        field8 = Integer.parseInt(document.getString("data8"));
 
                     } else {
                         Log.d("not exists", "No such document");
@@ -150,8 +156,14 @@ int k=1;
                     data1.clear();
                     Log.d("k","before" + data1);
 
-                    data1.add(new ValueDataEntry("Assests", field1));
-                    data1.add(new ValueDataEntry("Liabilities", field2));
+                    data1.add(new ValueDataEntry("Accounts", field1));
+                    data1.add(new ValueDataEntry("Deposits", field2));
+                    data1.add(new ValueDataEntry("Insurance", field3));
+                    data1.add(new ValueDataEntry("Mutual Funds", field4));
+                    data1.add(new ValueDataEntry("Locker", field5));
+                    data1.add(new ValueDataEntry("Loans", field6));
+                    data1.add(new ValueDataEntry("Credit Card", field7));
+                    data1.add(new ValueDataEntry("Others", field8));
                     Log.d("k","after" + data1);
                 }
                     Log.d("k2","k" + data1);
