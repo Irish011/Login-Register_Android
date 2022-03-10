@@ -8,6 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -37,6 +41,9 @@ public class bankAccountFragment extends Fragment {
     private TextView number;
     private EditText find;
 
+    ArrayList<ManageModel> arrayManage = new ArrayList<>();
+    RecyclerManageAdapter adapter;
+    RecyclerView recyclerViewAccount;
     View view;
 
     public bankAccountFragment() {
@@ -73,6 +80,13 @@ public class bankAccountFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        recyclerViewAccount = view.findViewById(R.id.accountrecycleview);
+        recyclerViewAccount.setHasFixedSize(true);
+        recyclerViewAccount.setLayoutManager(new LinearLayoutManager(getActivity()));
+        arrayManage = new ArrayList<ManageModel>();
+        adapter = new RecyclerManageAdapter(getActivity(), arrayManage);
+        recyclerViewAccount.setAdapter(adapter);
 
 //        submit = view.findViewById(R.id.addbtn);
 //        number = view.findViewById(R.id.text9);
@@ -119,17 +133,17 @@ public class bankAccountFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_bank_account, container, false);
 
-        Button button = view.findViewById(R.id.addbtn);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                EditText editText = view.findViewById(R.id.edittext);
-                Bundle bundle = new Bundle();
-                bundle.putString("key", editText.getText().toString());
-                getParentFragmentManager().setFragmentResult("dataFrom1", bundle);
-                editText.setText("");
-            }
-        });
+//        Button button = view.findViewById(R.id.addbtn);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                EditText editText = view.findViewById(R.id.edittext);
+//                Bundle bundle = new Bundle();
+//                bundle.putString("key", editText.getText().toString());
+//                getParentFragmentManager().setFragmentResult("dataFrom1", bundle);
+//                editText.setText("");
+//            }
+//        });
         return view;
     }
 }

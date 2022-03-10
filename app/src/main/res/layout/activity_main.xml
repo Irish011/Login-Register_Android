@@ -3,104 +3,252 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/splash"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+<!--1-->
+<!--    <View-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="#8F000000"-->
+<!--        />-->
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#8F000000"
-        />
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:fillViewport="true">-->
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+<!--        <TextView-->
+<!--            android:id="@+id/textView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="132dp"-->
+<!--            android:text="Login"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="44sp"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.498"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+<!--        <EditText-->
+<!--            android:id="@+id/inputEmail"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:ems="10"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:inputType="textEmailAddress"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:hint="Email"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/textView"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/textView"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/textView"-->
+<!--            />-->
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="132dp"
-            android:text="Login"
-            android:textColor="@color/white"
-            android:textSize="44sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-        <EditText
-            android:id="@+id/inputEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:layout_marginTop="30dp"
-            android:inputType="textEmailAddress"
-            android:textColor="@color/white"
-            android:hint="Email"
-            app:layout_constraintEnd_toEndOf="@+id/textView"
-            app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            />
+<!--        <EditText-->
+<!--            android:id="@+id/inputPassword"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:ems="10"-->
+<!--            android:layout_marginTop="40dp"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:inputType="textPassword"-->
+<!--            android:hint="Password"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/inputEmail"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/inputEmail"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/inputEmail"-->
+<!--            />-->
 
-        <EditText
-            android:id="@+id/inputPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:layout_marginTop="40dp"
-            android:textColor="@color/white"
-            android:inputType="textPassword"
-            android:hint="Password"
-            app:layout_constraintEnd_toEndOf="@+id/inputEmail"
-            app:layout_constraintStart_toStartOf="@+id/inputEmail"
-            app:layout_constraintTop_toBottomOf="@+id/inputEmail"
-            />
-
-        <Button
-            android:id="@+id/btnLogin"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Login"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="@+id/inputPassword"
-            app:layout_constraintStart_toStartOf="@+id/inputPassword"
-            app:layout_constraintTop_toBottomOf="@+id/inputPassword"/>
-
-
-            <TextView
-                android:id="@+id/fpassword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="32dp"
-                android:text="Forget Password?"
-                android:textColor="#fff"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btnLogin" />
-
-            <TextView
-                android:id="@+id/createNewAccount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="Create an Account"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/fpassword"
-                app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+<!--        <Button-->
+<!--            android:id="@+id/btnLogin"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:text="Login"-->
+<!--            android:textColor="@color/white"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/inputPassword"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/inputPassword"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/inputPassword"/>-->
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+<!--            <TextView-->
+<!--                android:id="@+id/fpassword"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="32dp"-->
+<!--                android:layout_marginTop="32dp"-->
+<!--                android:text="Forget Password?"-->
+<!--                android:textColor="#fff"-->
+<!--                android:textSize="20sp"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/btnLogin" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/createNewAccount"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="32dp"-->
+<!--                android:text="Create an Account"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="20sp"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/fpassword"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/btnLogin" />-->
+
+
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--    </ScrollView>-->
+
+<!--    2-->
+<!--    <ImageView-->
+<!--        android:id="@+id/imgview1"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:src="@drawable/background"-->
+<!--        app:layout_constraintHeight_percent=".27"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        app:layout_constraintVertical_bias="0"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"/>-->
+
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:id="@+id/constraintlayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        app:layout_constraintHeight_percent=".78"-->
+<!--        app:layout_constraintVertical_bias="1"-->
+<!--        android:backgroundTint="@color/lightgrey"-->
+<!--        android:background="@drawable/rectangle"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
+
+
+<!--        <androidx.viewpager2.widget.ViewPager2-->
+<!--            android:id="@+id/viewpager"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            app:layout_constraintVertical_bias="0"-->
+<!--            app:layout_constraintHeight_percent=".7"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/tab_layout"/>-->
+
+<!--        <com.google.android.material.tabs.TabLayout-->
+<!--            android:id="@+id/tab_layout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+
+<!--            app:layout_constraintVertical_bias="0"-->
+<!--            android:background="@drawable/rectangle"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            />-->
+
+<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--            android:id="@+id/fab_google"-->
+<!--            android:backgroundTint="@color/white"-->
+<!--            android:src="@drawable/iconimg"-->
+<!--            android:elevation="35dp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/viewpager"/>-->
+
+<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--            android:id="@+id/fab_fb"-->
+<!--            android:backgroundTint="@color/white"-->
+<!--            android:src="@drawable/iconimg"-->
+<!--            android:elevation="35dp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintHorizontal_bias="1"-->
+<!--            android:layout_marginRight="10dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toStartOf="@id/fab_google"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/viewpager"/>-->
+
+<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--            android:id="@+id/fab_gmail"-->
+<!--            android:backgroundTint="@color/white"-->
+<!--            android:src="@drawable/iconimg"-->
+<!--            app:layout_constraintHorizontal_bias="0"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:elevation="35dp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toEndOf="@id/fab_google"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/viewpager"/>-->
+
+
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--1-->
+    <!--    <ImageView-->
+    <!--        android:layout_width="60dp"-->
+    <!--        android:layout_height="60dp"-->
+    <!--        android:src="@drawable/iconimg"-->
+    <!--        app:layout_constraintBottom_toTopOf="@id/constraintlayout"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="@id/imgview1"-->
+    <!--        />-->
+<!--    2-->
+<!--    <TextView-->
+<!--        android:id="@+id/titletext"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Welcome to Investment Tracker"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/constraintlayout"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="1.0"-->
+<!--        />-->
+
+    <ImageView
+        android:id="@+id/splash"
+        android:layout_width="320dp"
+        android:layout_height="100dp"
+        android:background="@drawable/circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.08" />
+
+    <TextView
+        android:layout_width="350dp"
+        android:layout_height="100dp"
+        android:fontFamily="@font/poppins"
+        android:textAlignment="center"
+        android:text="Family Investment Tracker"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/splash"
+        app:layout_constraintEnd_toEndOf="@+id/splash"
+        app:layout_constraintStart_toStartOf="@+id/splash"
+        app:layout_constraintTop_toTopOf="@+id/splash" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

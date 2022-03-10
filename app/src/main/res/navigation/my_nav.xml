@@ -77,6 +77,9 @@
         <action
             android:id="@+id/toOtherInvestments"
             app:destination="@id/otherInvestmentFragment" />
+        <action
+            android:id="@+id/toCategory"
+            app:destination="@id/categoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/bankAccountFragment"
@@ -122,4 +125,74 @@
         android:name="com.example.register_login_firebase.otherInvestmentFragment"
         android:label="fragment_other_investment"
         tools:layout="@layout/fragment_other_investment" />
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.example.register_login_firebase.categoryFragment"
+        android:label="fragment_category"
+        tools:layout="@layout/fragment_category" >
+        <action
+            android:id="@+id/toBankAccountForm"
+            app:destination="@id/bankAccountForm" />
+        <action
+            android:id="@+id/toFDForm"
+            app:destination="@id/fdForm" />
+        <action
+            android:id="@+id/toInsuranceForm"
+            app:destination="@id/insuranceForm" />
+        <action
+            android:id="@+id/toMutualFundsForm"
+            app:destination="@id/mutualFundForm" />
+        <action
+            android:id="@+id/toOtherInvestmentsForm"
+            app:destination="@id/otherInvestmentForm" />
+        <action
+            android:id="@+id/toLockerForm"
+            app:destination="@id/lockerForm" />
+        <action
+            android:id="@+id/toCreditcardForm"
+            app:destination="@id/creditCardForm" />
+        <action
+            android:id="@+id/toLoansForm"
+            app:destination="@id/loanForm" />
+    </fragment>
+    <fragment
+        android:id="@+id/bankAccountForm"
+        android:name="com.example.register_login_firebase.bankAccountForm"
+        android:label="fragment_bank_account_form"
+        tools:layout="@layout/fragment_bank_account_form" />
+    <fragment
+        android:id="@+id/fdForm"
+        android:name="com.example.register_login_firebase.fdForm"
+        android:label="fragment_fd_form"
+        tools:layout="@layout/fragment_fd_form" />
+    <fragment
+        android:id="@+id/insuranceForm"
+        android:name="com.example.register_login_firebase.insuranceForm"
+        android:label="fragment_insurance_form"
+        tools:layout="@layout/fragment_insurance_form" />
+    <fragment
+        android:id="@+id/mutualFundForm"
+        android:name="com.example.register_login_firebase.mutualFundForm"
+        android:label="fragment_mutual_fund_form"
+        tools:layout="@layout/fragment_mutual_fund_form" />
+    <fragment
+        android:id="@+id/lockerForm"
+        android:name="com.example.register_login_firebase.lockerForm"
+        android:label="fragment_locker_form"
+        tools:layout="@layout/fragment_locker_form" />
+    <fragment
+        android:id="@+id/loanForm"
+        android:name="com.example.register_login_firebase.loanForm"
+        android:label="fragment_loan_form"
+        tools:layout="@layout/fragment_loan_form" />
+    <fragment
+        android:id="@+id/creditCardForm"
+        android:name="com.example.register_login_firebase.creditCardForm"
+        android:label="fragment_credit_card_form"
+        tools:layout="@layout/fragment_credit_card_form" />
+    <fragment
+        android:id="@+id/otherInvestmentForm"
+        android:name="com.example.register_login_firebase.otherInvestmentForm"
+        android:label="fragment_other_investment_form"
+        tools:layout="@layout/fragment_other_investment_form" />
 </navigation>

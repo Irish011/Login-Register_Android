@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:background="@color/purple_500"
+    android:paddingLeft="21dp"
+    android:paddingRight="21dp"
+    android:paddingBottom="11dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:id="@+id/title"
+        android:layout_margin="21dp"
+        android:text="Add Contact"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="11dp"
+        android:hint="Enter Name"
+        android:background="#fff"
+        android:id="@+id/ename"
+        android:layout_marginBottom="11dp"
+        android:inputType="text"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="11dp"
+        android:background="#fff"
+        android:id="@+id/eemail"
+        android:hint="Enter Email Id"
+        android:layout_marginBottom="11dp"
+        android:inputType="textEmailAddress"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="11dp"
+        android:hint="Enter Number"
+        android:background="#fff"
+        android:id="@+id/enumber"
+        android:layout_marginBottom="11dp"
+        android:inputType="number"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="11dp"
+        android:background="#fff"
+        android:layout_marginBottom="11dp"
+        android:id="@+id/erelation"
+        android:hint="Enter Relation"
+        android:inputType="text"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:backgroundTint="#fff"
+        android:layout_marginTop="11dp"
+        android:id="@+id/abtn"
+        android:layout_gravity="end"
+        android:textColor="@color/design_default_color_on_secondary"/>
+
+</LinearLayout>

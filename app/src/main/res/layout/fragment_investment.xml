@@ -40,6 +40,8 @@
                 android:text="Add"
                 android:layout_marginTop="10dp"
                 android:textSize="18sp"
+                android:background="@drawable/button_bg"
+                android:textColor="@color/white"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintRight_toRightOf="@id/piecard"
                 app:layout_constraintBottom_toTopOf="@id/piecard" />

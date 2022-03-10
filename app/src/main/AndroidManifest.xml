@@ -10,8 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Register_Login_Firebase">
         <activity
-            android:name=".ProfileActivity"
+            android:name=".dialog_popup"
             android:exported="false" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".resetPassword"
             android:exported="false" />
@@ -24,7 +28,8 @@
         <activity
             android:name=".RegisterActivity"
             android:exported="false"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

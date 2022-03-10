@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:id="@+id/user_profile"
     android:layout_height="match_parent">
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -8,8 +9,8 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginLeft="16dp"
-        android:src="@drawable/iconimg"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:src="@drawable/iconimg" />
 
     <TextView
         android:id="@+id/name"

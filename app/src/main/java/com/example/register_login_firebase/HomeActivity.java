@@ -1,6 +1,7 @@
 package com.example.register_login_firebase;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -11,9 +12,11 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,13 +30,21 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class HomeActivity extends AppCompatActivity {
 
     private FirebaseUser user;
+    private FirebaseAuth mAuth;
     private DatabaseReference reference;
     private String uID;
     private Button logout;
+
+    FirebaseFirestore fstore;
 
 
     @Override
@@ -56,9 +67,37 @@ public class HomeActivity extends AppCompatActivity {
         NavHostFragment navhostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentContainerView);
         NavigationUI.setupWithNavController(navigationView, navhostFragment.getNavController());
 
+        //SideBar Dynamic
+        View hView = navigationView.getHeaderView(0);
+        RelativeLayout name = (RelativeLayout) hView.findViewById(R.id.user_profile);
+        name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
+
         user = FirebaseAuth.getInstance().getCurrentUser();
-        reference = FirebaseDatabase.getInstance().getReference("User");
-        uID = user.getUid();
+        mAuth = FirebaseAuth.getInstance();
+        reference = FirebaseDatabase.getInstance().getReference("Head");
+        FirebaseUser firebaseUser = mAuth.getCurrentUser();
+        if(firebaseUser != null){
+            uID = firebaseUser.getUid();
+        }
+        //uID = user.getUid();
+        fstore = FirebaseFirestore.getInstance();
+
+//        DocumentReference documentReference = fstore.collection("Head").document(uID);
+//        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+//            @Override
+//            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+//
+//                name.setText(value.getString("h_name"));
+//                Log.d("name", uID);
+//            }
+//        });
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
