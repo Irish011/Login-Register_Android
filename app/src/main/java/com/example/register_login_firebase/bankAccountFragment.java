@@ -1,22 +1,38 @@
 package com.example.register_login_firebase;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
@@ -25,7 +41,7 @@ import java.util.ArrayList;
  * Use the {@link bankAccountFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class bankAccountFragment extends Fragment {
+public class bankAccountFragment extends Fragment implements RecyclerManageAdapter.onManageListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -41,6 +57,12 @@ public class bankAccountFragment extends Fragment {
     private TextView number;
     private EditText find;
 
+    CardView formview;
+
+    FirebaseFirestore db;
+    Button Submit;
+    FirebaseUser user; String uid;
+    ProgressDialog pd;
     ArrayList<ManageModel> arrayManage = new ArrayList<>();
     RecyclerManageAdapter adapter;
     RecyclerView recyclerViewAccount;
@@ -85,8 +107,12 @@ public class bankAccountFragment extends Fragment {
         recyclerViewAccount.setHasFixedSize(true);
         recyclerViewAccount.setLayoutManager(new LinearLayoutManager(getActivity()));
         arrayManage = new ArrayList<ManageModel>();
-        adapter = new RecyclerManageAdapter(getActivity(), arrayManage);
+        adapter = new RecyclerManageAdapter(getActivity(), arrayManage, this);
         recyclerViewAccount.setAdapter(adapter);
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        uid = user.getUid();
+
+//        formview = view.findViewById(R.id.accountrecycleview);
 
 //        submit = view.findViewById(R.id.addbtn);
 //        number = view.findViewById(R.id.text9);
@@ -112,6 +138,50 @@ public class bankAccountFragment extends Fragment {
 //
 //        number.setText(getvalue());
 
+        Submit= view.findViewById(R.id.submit_account);
+    //        Submit.setOnClickListener(new View.OnClickListener() {
+    //            @Override
+    //            public void onClick(View v) {
+    ////                eventChangeListener();
+    //            }
+    //        });
+
+
+        arrayManage.add(new ManageModel("ICICI Bank", "12342"));
+
+        recyclerViewAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "Hello", Toast.LENGTH_SHORT).show();
+//                Navigation.findNavController(recyclerViewAccount).navigate(R.id.toBankAccountForm);
+            }
+        });
+
+    }
+
+    private void eventChangeListener() {
+
+        db.collection("Head").document(uid).collection("Investments")
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                        if(error!=null){
+                            if(pd.isShowing())
+                                pd.dismiss();
+                            Log.e("Firestore error", error.getMessage());
+                            return;
+                        }
+                        for(DocumentChange dc : value.getDocumentChanges()){
+                            if(dc.getType() == DocumentChange.Type.ADDED){
+                                arrayManage.add(dc.getDocument().toObject(ManageModel.class));
+                            }
+
+                            adapter.notifyDataSetChanged();
+                            if(pd.isShowing())
+                                pd.dismiss();
+                        }
+                    }
+                });
     }
 
     private String getvalue(){
@@ -145,5 +215,11 @@ public class bankAccountFragment extends Fragment {
 //            }
 //        });
         return view;
+    }
+
+    @Override
+    public void onManageClick(int position) {
+        arrayManage.get(position);
+        Toast.makeText(getActivity(), "Hellos", Toast.LENGTH_SHORT).show();
     }
 }

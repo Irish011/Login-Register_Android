@@ -13,10 +13,10 @@
         android:src="@drawable/iconimg" />
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/nameprofiledisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Irish"
+
         android:layout_below="@+id/Profile"
         android:textColor="@color/black"
         android:layout_marginTop="18dp"
@@ -28,12 +28,11 @@
         android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Irish011"
-        android:layout_below="@+id/name"
-        android:textColor="@color/lightgrey"
-        android:textSize="12sp"
+        android:layout_below="@+id/nameprofiledisplay"
         android:layout_marginLeft="16dp"
-        />
+        android:text="Irish011"
+        android:textColor="@color/lightgrey"
+        android:textSize="12sp" />
 
     <View
         style="@style/line"

@@ -45,6 +45,7 @@ public class HomeActivity extends AppCompatActivity {
     private Button logout;
 
     FirebaseFirestore fstore;
+    TextView Name, USname;
 
 
     @Override
@@ -88,16 +89,21 @@ public class HomeActivity extends AppCompatActivity {
         }
         //uID = user.getUid();
         fstore = FirebaseFirestore.getInstance();
+        Name = hView.findViewById(R.id.nameprofiledisplay);
+        USname = hView.findViewById(R.id.username);
 
-//        DocumentReference documentReference = fstore.collection("Head").document(uID);
-//        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
-//            @Override
-//            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-//
-//                name.setText(value.getString("h_name"));
-//                Log.d("name", uID);
-//            }
-//        });
+        DocumentReference documentReference = fstore.collection("Head").document(uID);
+
+        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+
+                Name.setText(value.getString("h_name"));
+                USname.setText(value.getString("f_name"));
+
+                Log.d("name", uID);
+            }
+        });
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override

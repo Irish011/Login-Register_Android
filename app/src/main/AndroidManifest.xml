@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Register_Login_Firebase">
         <activity
+            android:name=".activity_otp"
+            android:exported="false" />
+        <activity
             android:name=".dialog_popup"
             android:exported="false" />
         <activity

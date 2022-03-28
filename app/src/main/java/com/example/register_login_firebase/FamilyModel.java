@@ -1,14 +1,14 @@
 package com.example.register_login_firebase;
 
 public class FamilyModel {
-    String h_name, u_email, u_relation;
+    String h_name, u_email, relation;
 
     public FamilyModel(){}
 
-    public FamilyModel(String h_name, String u_email, String u_relation){
+    public FamilyModel(String h_name, String u_email, String relation){
         this.h_name = h_name;
         this.u_email = u_email;
-        this.u_relation = u_relation;
+        this.relation = relation;
     }
 
     public String getH_name() {
@@ -27,7 +27,7 @@ public class FamilyModel {
         this.u_email = u_email;
     }
 
-    public String getU_relation() { return u_relation; }
+    public String get_relation() { return relation; }
 
-    public void setU_relation(String u_relation) { this.u_relation = u_relation; }
+    public void set_relation(String relation) { this.relation = relation; }
 }

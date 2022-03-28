@@ -143,60 +143,60 @@ public class insuranceFragment extends Fragment {
         Reset=view.findViewById(R.id.resetview);
         Submit=view.findViewById(R.id.submitview);
 
-        Submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String fCompany_name = Company_name.getText().toString().trim();
-                String fBranch_name = Branch_name.getText().toString().trim();
-                String fPlan = Plan.getText().toString().trim();
-                String fPolicy_date = Policy_date.getText().toString().trim();
-                String fPolicy_number = Policy_number.getText().toString().trim();
-                String fPremium_amount = Premium_amount.getText().toString().trim();
-                String fNo_of_premium = No_of_premium.getText().toString().trim();
-                String fMaturity_amount = Maturity_amount.getText().toString().trim();
-                String fMaturity_date = Maturity_date.getText().toString().trim();
-                String fSum_assured = Sum_assured.getText().toString().trim();
-                String fMode_of_premium = Mode_of_premium.getText().toString().trim();
-                String fRemark = Remark.getText().toString().trim();
-
-
-
-                CollectionReference dbUser = db.collection("User");
-
-                UserInsurance user=new UserInsurance(
-                        fCompany_name,
-                        fBranch_name,
-                        fPlan,
-                        fPolicy_date,
-                        fMaturity_date,
-                        fMode_of_premium,
-                        fRemark,
-                        text,
-                        Integer.parseInt(fPolicy_number),
-                        Integer.parseInt(fPremium_amount),
-                        Integer.parseInt(fNo_of_premium),
-                        Integer.parseInt(fMaturity_amount),
-                        Integer.parseInt(fSum_assured)
-
-                );
-
-                dbUser.add(user)
-                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                            @Override
-                            public void onSuccess(DocumentReference documentReference) {
-                                Toast.makeText(getActivity(),"User Added",Toast.LENGTH_LONG).show();
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(getActivity(),e.getMessage(), Toast.LENGTH_LONG).show();
-                            }
-                        });
-
-            }
-        });
+//        Submit.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                String fCompany_name = Company_name.getText().toString().trim();
+//                String fBranch_name = Branch_name.getText().toString().trim();
+//                String fPlan = Plan.getText().toString().trim();
+//                String fPolicy_date = Policy_date.getText().toString().trim();
+//                String fPolicy_number = Policy_number.getText().toString().trim();
+//                String fPremium_amount = Premium_amount.getText().toString().trim();
+//                String fNo_of_premium = No_of_premium.getText().toString().trim();
+//                String fMaturity_amount = Maturity_amount.getText().toString().trim();
+//                String fMaturity_date = Maturity_date.getText().toString().trim();
+//                String fSum_assured = Sum_assured.getText().toString().trim();
+//                String fMode_of_premium = Mode_of_premium.getText().toString().trim();
+//                String fRemark = Remark.getText().toString().trim();
+//
+//
+//
+//                CollectionReference dbUser = db.collection("User");
+//
+//                UserInsurance user=new UserInsurance(
+//                        fCompany_name,
+//                        fBranch_name,
+//                        fPlan,
+//                        fPolicy_date,
+//                        fMaturity_date,
+//                        fMode_of_premium,
+//                        fRemark,
+//                        text,
+//                        Integer.parseInt(fPolicy_number),
+//                        Integer.parseInt(fPremium_amount),
+//                        Integer.parseInt(fNo_of_premium),
+//                        Integer.parseInt(fMaturity_amount),
+//                        Integer.parseInt(fSum_assured)
+//
+//                );
+//
+//                dbUser.add(user)
+//                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+//                            @Override
+//                            public void onSuccess(DocumentReference documentReference) {
+//                                Toast.makeText(getActivity(),"User Added",Toast.LENGTH_LONG).show();
+//                            }
+//                        })
+//                        .addOnFailureListener(new OnFailureListener() {
+//                            @Override
+//                            public void onFailure(@NonNull Exception e) {
+//                                Toast.makeText(getActivity(),e.getMessage(), Toast.LENGTH_LONG).show();
+//                            }
+//                        });
+//
+//            }
+//        });
 
     }
 }

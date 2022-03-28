@@ -82,56 +82,60 @@ public class Login_Tab_Fragment extends Fragment {
 
 
         //Login
-
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 String emailid = email.getText().toString().trim();
                 String pass = password.getText().toString().trim();
+                if(emailid.isEmpty() || pass.isEmpty()){
+                    Toast.makeText(getActivity(), "Please enter your credentials!", Toast.LENGTH_SHORT).show();
+                }
+                else {
 
-                fAuth.signInWithEmailAndPassword(emailid, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            //Check Database
-                            DocumentReference d = db.collection("Head").document(fAuth.getCurrentUser().getUid());
-                            d.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                                @Override
-                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                    if(task.isSuccessful()){
-                                        DocumentSnapshot documentSnapshot = task.getResult();
-                                        if(documentSnapshot.exists()){
-                                            String name = documentSnapshot.getString("h_name");
-                                            String relation = documentSnapshot.getString("relation");
-                                            if (name.isEmpty()) {
-                                                //Complete Profile Dialog
-                                                completeProfile();
-                                            }
-                                            //Main Screen
-                                            else {
-                                                Toast.makeText(getActivity(), "Login Success", Toast.LENGTH_SHORT).show();
-                                                SharedPreferences.Editor editor = sharedPreferences.edit();
-                                                editor.putString(KEY_NAME, relation);
-                                                editor.apply();
-                                                String named = sharedPreferences.getString(KEY_NAME, null);
+                    fAuth.signInWithEmailAndPassword(emailid, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                //Check Database
+                                DocumentReference d = db.collection("Head").document(fAuth.getCurrentUser().getUid());
+                                d.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                        if (task.isSuccessful()) {
+                                            DocumentSnapshot documentSnapshot = task.getResult();
+                                            if (documentSnapshot.exists()) {
+                                                String name = documentSnapshot.getString("f_name");
+                                                String relation = documentSnapshot.getString("relation");
+                                                if (name.isEmpty()) {
+                                                    //Complete Profile Dialog
+                                                    completeProfile();
+                                                    clear();
+                                                }
+                                                //Main Screen
+                                                else {
+                                                    Toast.makeText(getActivity(), "Login Success", Toast.LENGTH_SHORT).show();
+                                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                                    editor.putString(KEY_NAME, relation);
+                                                    editor.apply();
+                                                    String named = sharedPreferences.getString(KEY_NAME, null);
 //                                                Log.d("Relation", named);
-                                                Intent intent = new Intent(getActivity(), HomeActivity.class);
-                                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                                startActivity(intent);
+                                                    Intent intent = new Intent(getActivity(), HomeActivity.class);
+                                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                                    startActivity(intent);
+                                                }
+                                            } else {
+                                                Toast.makeText(getActivity(), "No document found" + task.getException().toString(), Toast.LENGTH_SHORT).show();
                                             }
-                                        }
-                                        else{
-                                            Toast.makeText(getActivity(), "No document found" + task.getException().toString(), Toast.LENGTH_SHORT).show();
                                         }
                                     }
-                                }
-                            });
+                                });
 
 
+                            }
                         }
-                    }
-                });
+                    });
+                }
             }
         });
 
@@ -147,6 +151,11 @@ public class Login_Tab_Fragment extends Fragment {
         });
 
         return root;
+    }
+
+    private void clear() {
+        email.setText("");
+        password.setText("");
     }
 
     private void completeProfile(){

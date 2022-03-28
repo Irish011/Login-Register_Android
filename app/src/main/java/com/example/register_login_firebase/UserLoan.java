@@ -4,11 +4,14 @@ public class UserLoan {
 
     String fbank_nameLoan, fbranch_nameLoan, fdisbursement_dateLoan, fend_dateLoan, fremarkLoan;
 
-    int floan_amountLoan, floan_account_numberLoan, floan_EMILoan, fRoiLoan;
+    String floan_amountLoan;
+    String floan_account_numberLoan;
+    String floan_EMILoan;
+    String fRoiLoan;
 
     public UserLoan(String fbank_nameLoan, String fbranch_nameLoan, String fdisbursement_dateLoan,
-                    String fend_dateLoan, String fremarkLoan, int floan_amountLoan, int floan_account_numberLoan,
-                    int floan_EMILoan, int fRoiLoan){
+                    String fend_dateLoan, String fremarkLoan, String floan_amountLoan, String floan_account_numberLoan,
+                    String floan_EMILoan, String fRoiLoan){
         this.fbank_nameLoan =fbank_nameLoan;
         this.fbranch_nameLoan =fbranch_nameLoan;
         this.fdisbursement_dateLoan =fdisbursement_dateLoan;
@@ -30,12 +33,12 @@ public class UserLoan {
 
     public  String getFremarkLoan(){return fremarkLoan;}
 
-    public int getFloan_amountLoan(){return floan_amountLoan;}
+    public String getFloan_amountLoan(){return floan_amountLoan;}
 
-    public int getFloan_account_numberLoan(){return floan_account_numberLoan;}
+    public String getFloan_account_numberLoan(){return floan_account_numberLoan;}
 
-    public int getFloan_EMILoan(){return floan_EMILoan;}
+    public String getFloan_EMILoan(){return floan_EMILoan;}
 
-    public  int getFRoiLoan(){return fRoiLoan;}
+    public String getFRoiLoan(){return fRoiLoan;}
 
 }

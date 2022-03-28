@@ -3,11 +3,11 @@ package com.example.register_login_firebase;
 public class UserAcc {
 
     String fBank_name, fHolder_name, fMode_of_Operation, fMaturity_date, fRemark, fBranch_name;
-    int fAccount_number, fAmount;
+    String fAccount_number, fAmount;
 
     public UserAcc(String fBank_name, String fBranch_name, String fRemark,
                    String fHolder_name, String fMode_of_Operation, String fMaturity_date,
-                   int fAccount_number, int fAmount){
+                   String fAccount_number, String fAmount){
         this.fBank_name=fBank_name;
         this.fAccount_number=fAccount_number;
         this.fAmount=fAmount;
@@ -24,9 +24,9 @@ public class UserAcc {
 
     public String getFMode_of_Operation(){return fMode_of_Operation;}
 
-    public int getFAccount_number(){return fAccount_number;}
+    public String getFAccount_number(){return fAccount_number;}
 
-    public int getFAmount(){return fAmount;}
+    public String getFAmount(){return fAmount;}
 
     public String getFBranch_name(){
         return fBranch_name;

@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -53,8 +54,9 @@ public class familyTreeFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    TextView title;
     ArrayList<FamilyModel> arrayFamily = new ArrayList<>();
-    String relation;
+    String relation, familyname;
     FloatingActionButton btnAdd;
     RecyclerFamilyAdapter adapter;
     FirebaseFirestore db;
@@ -109,6 +111,8 @@ public class familyTreeFragment extends Fragment {
         pd.setMessage("Fetching Data");
         pd.show();
 
+
+        title = view.findViewById(R.id.title_family_tree);
         recyclerView = view.findViewById(R.id.recycleview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -117,11 +121,22 @@ public class familyTreeFragment extends Fragment {
         arrayFamily = new ArrayList<FamilyModel>();
         adapter = new RecyclerFamilyAdapter(getActivity(), arrayFamily);
         btnAdd = view.findViewById(R.id.addbutton);
+        user = mAuth.getCurrentUser();
+        uid = user.getUid();
 
         recyclerView.setAdapter(adapter);
 
         sharedPreferences = getActivity().getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         String name = sharedPreferences.getString(KEY_NAME, null);
+
+        db.collection("Head").document(uid)
+                .addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                        familyname = value.getString("f_name");
+                        title.setText(familyname + "'s" + " " + "Family");
+                    }
+                });
 
         if(name != null){
             relation = name;

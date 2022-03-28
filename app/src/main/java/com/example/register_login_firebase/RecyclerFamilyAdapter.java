@@ -37,7 +37,7 @@ public class RecyclerFamilyAdapter extends RecyclerView.Adapter<RecyclerFamilyAd
 
         holder.txtname.setText(familyModel.h_name);
         holder.txtnum.setText(familyModel.u_email);
-        holder.txtrelation.setText(familyModel.u_relation);
+        holder.txtrelation.setText(familyModel.relation);
     }
 
     @Override

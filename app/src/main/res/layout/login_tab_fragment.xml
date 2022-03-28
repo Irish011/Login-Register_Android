@@ -33,6 +33,7 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/edit_text_bg"
         app:layout_constraintHorizontal_bias=".5"
+        android:inputType="textPassword"
         android:fontFamily="@font/poppins"
         android:hint="Password"
         android:paddingLeft="20dp"

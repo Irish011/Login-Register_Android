@@ -8,15 +8,19 @@
     tools:context=".reportFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <Button
+        android:id="@+id/reportbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Report"
-        android:textSize="30sp"
+        android:text="Generate Report"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="19sp"
+        android:padding="15dp"
+        android:textColor="@color/white"
+        android:background="@drawable/button_bg"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

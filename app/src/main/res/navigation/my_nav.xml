@@ -94,7 +94,11 @@
         android:id="@+id/fdFragment"
         android:name="com.example.register_login_firebase.fdFragment"
         android:label="fragment_fd"
-        tools:layout="@layout/fragment_fd" />
+        tools:layout="@layout/fragment_fd" >
+        <action
+            android:id="@+id/fdFragment_to_fdForm"
+            app:destination="@id/fdForm" />
+    </fragment>
     <fragment
         android:id="@+id/insuranceFragment"
         android:name="com.example.register_login_firebase.insuranceFragment"

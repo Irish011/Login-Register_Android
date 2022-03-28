@@ -1,16 +1,21 @@
 package com.example.register_login_firebase;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
+import androidx.navigation.Navigation;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,6 +33,8 @@ public class fdFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     View view;
+    
+    CardView card;
 
     public fdFragment() {
         // Required empty public constructor
@@ -69,6 +76,9 @@ public class fdFragment extends Fragment {
 //        Bundle bundle = this.getArguments();
 //        String data = bundle.getString("key");
 //        view8.setText(data);
+
+        card = view.findViewById(R.id.fdcard);
+        selectCard(view, R.id.fdcard, R.id.fdFragment_to_fdForm, "FD");
     }
 
     @Override
@@ -83,11 +93,27 @@ public class fdFragment extends Fragment {
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
                 String data = result.getString("key");
 
-                TextView textView = view.findViewById(R.id.view8);
-                textView.setText(data);
+//                
             }
         });
         return view;
 
+    }
+
+    private void selectCard(View view, int CardId, int toId, String CardName) {
+        CardView cardView = view.findViewById(R.id.fdcard);
+
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Navigation.findNavController(view).navigate(toId);
+                    }
+                }, 1000);
+            }
+        });
     }
 }

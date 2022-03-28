@@ -19,9 +19,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthOptions;
+import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
@@ -30,6 +34,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class SignupTabFragment extends Fragment {
 
@@ -39,6 +44,7 @@ public class SignupTabFragment extends Fragment {
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
     DatabaseReference reference;
+    PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallBacks;
     FirebaseAuth mAuth;
     FirebaseUser mUser;
     FirebaseFirestore db;
@@ -57,6 +63,26 @@ public class SignupTabFragment extends Fragment {
         cpassword = root.findViewById(R.id.conf_password_reg);
         signup = root.findViewById(R.id.submitbutton);
         db = FirebaseFirestore.getInstance();
+
+        mCallBacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+            @Override
+            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+
+            }
+
+            @Override
+            public void onVerificationFailed(@NonNull FirebaseException e) {
+                Toast.makeText(getActivity(), "Error in verification " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                Intent intent = new Intent(getActivity(), activity_otp.class);
+                intent.putExtra("mobile", mno.getText().toString());
+                intent.putExtra("otp", s);
+                startActivity(intent);
+            }
+        };
 
     signup.setOnClickListener(new View.OnClickListener() {
         @Override
@@ -85,7 +111,7 @@ public class SignupTabFragment extends Fragment {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
-                                    Users head = new Users(headname, emailid, pass, Double.parseDouble(mobile), "head");
+                                    Users head = new Users(headname, emailid, pass, Double.parseDouble(mobile), "(Head)");
 
                                    db.collection("Head").document(mAuth.getCurrentUser().getUid()).set(head)
                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -93,7 +119,7 @@ public class SignupTabFragment extends Fragment {
                                                public void onComplete(@NonNull Task<Void> task) {
                                                    if(task.isSuccessful()) {
                                                        insertData();
-                                                       Toast.makeText(getActivity(), "User Create Success !", Toast.LENGTH_SHORT).show();
+//                                                       Toast.makeText(getActivity(), "User Create Success !", Toast.LENGTH_SHORT).show();
                                                        //Check Database
                                                        DocumentReference d = db.collection("Head").document(mAuth.getCurrentUser().getUid());
                                                        d.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -105,9 +131,10 @@ public class SignupTabFragment extends Fragment {
                                                                        String name = documentSnapshot.getString("f_name");
                                                                        if(name.isEmpty()){
                                                                            completeProfile();
+                                                                           clear();
                                                                        }
                                                                        else{
-                                                                           Toast.makeText(getActivity(), "Successfull", Toast.LENGTH_SHORT).show();
+                                                                           //Toast.makeText(getActivity(), "Successfull", Toast.LENGTH_SHORT).show();
                                                                        }
                                                                    }
                                                                }
@@ -138,12 +165,44 @@ public class SignupTabFragment extends Fragment {
         }
     });
 
+//        signup.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(!mno.getText().toString().trim().isEmpty()){
+//                    if(mno.getText().toString().trim().length()==10) {
+//
+//                        PhoneAuthOptions options = PhoneAuthOptions.newBuilder(mAuth)
+//                                .setPhoneNumber("+91" + mno.getText().toString())
+//                                .setTimeout(60L, TimeUnit.SECONDS)
+//                                .setActivity(getActivity())
+//                                .setCallbacks(mCallBacks)
+//                                .build();
+//
+//                        PhoneAuthProvider.verifyPhoneNumber(options);
+//
+//                    }else{
+//                        Toast.makeText(getActivity(), "Enter Correct Mobile No", Toast.LENGTH_SHORT).show();
+//                    }
+//                }else{
+//                    Toast.makeText(getActivity(), "Enter Mobile Number", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
+
         return root;
+    }
+
+    private void clear() {
+        email.setText("");
+        hname.setText("");
+        password.setText("");
+        cpassword.setText("");
+        mno.setText("");
     }
 
     private void completeProfile(){
         Toast.makeText(getActivity(), "Complete your profile!", Toast.LENGTH_SHORT).show();
-        View vi = LayoutInflater.from(getActivity()).inflate(R.layout.activity_profile, null, false);
+        View vi = LayoutInflater.from(getActivity()).inflate(R.layout.activity_dialog_popup, null, false);
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         builder.setView(vi);
@@ -157,7 +216,7 @@ public class SignupTabFragment extends Fragment {
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(getActivity(), "Failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "It's mandatory to complete profile", Toast.LENGTH_SHORT).show();
             }
         });
         AlertDialog dialog = builder.create();

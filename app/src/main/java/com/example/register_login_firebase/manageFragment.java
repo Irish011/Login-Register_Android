@@ -37,7 +37,7 @@ import com.google.firebase.firestore.SetOptions;
  */
 
 
-public class manageFragment extends Fragment {
+public class manageFragment extends Fragment implements RecyclerManageAdapter.onManageListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -235,5 +235,10 @@ reset.setOnClickListener(new View.OnClickListener() {
             m_Amt.setText(null);
             m_Date.setText(null);
             remark.setText(null);
+    }
+
+    @Override
+    public void onManageClick(int position) {
+
     }
 }
