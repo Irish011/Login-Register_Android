@@ -61,7 +61,7 @@ public class bankAccountForm extends Fragment {
     ProgressDialog pd;
     Integer number;
 
-    String fBank_nameAcc;
+    String fBank_nameAcc,dBank_nameAcc,dBranch_nameAcc;
     String fBranch_nameAcc;
 
 
@@ -186,24 +186,37 @@ public class bankAccountForm extends Fragment {
             db.collection("Head").document(uid).collection("Investments").document("1")
                     .addSnapshotListener(new EventListener<DocumentSnapshot>() {
                         @Override
-                        public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                        public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error){
                             bname = value.getString("fbank_name");
                             brname = value.getString("fbranch_name");
+                            Log.d("Bank Namee", bname);
+                            Log.d("Key", KeyAccount.getText().toString());
+//                          Log.d("B name", dBank_nameAcc);
+
+                            try {
+                                dBank_nameAcc = decrypt(bname, KeyAccount.getText().toString());
+                                bank_name.setText(dBank_nameAcc);
+                            }
+                            catch (Exception e) {
+
+                            }
+//                            bank_name.setText(bname);
                         }
                     });
 
-            try {
+//            bank_name.setText("Hello");
 
-                fBank_nameAcc  = decrypt(bname, KeyAccount.getText().toString());
-                fBranch_nameAcc  = decrypt(brname, KeyAccount.getText().toString());
-                bank_name.setText(fBank_nameAcc);
-                Branch_name.setText(fBranch_nameAcc);
-                Log.d("Bank Name", "fBank_nameAcc");
-                Log.d("Branch Name", fBranch_nameAcc);
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+//            try {
+//                dBank_nameAcc  = decrypt(bname, KeyAccount.getText().toString());
+//                dBranch_nameAcc  = decrypt(brname, KeyAccount.getText().toString());
+//                bank_name.setText(fBank_nameAcc);
+//                Branch_name.setText(fBranch_nameAcc);
+//                Log.d("Bank Name", dBank_nameAcc);
+//                Log.d("Branch Name", dBranch_nameAcc);
+//
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
 
         }
 
